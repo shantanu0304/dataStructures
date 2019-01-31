@@ -49,7 +49,10 @@ public class arrays1 {
     {
         for (student stu: sectionG)
         {
-            System.out.println(stu);
+            if(stu != null)
+            {
+                System.out.println(stu);
+            }
         }
     }
 
