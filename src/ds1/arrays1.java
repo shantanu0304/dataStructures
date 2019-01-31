@@ -56,6 +56,26 @@ public class arrays1 {
         }
     }
 
+    public student remove(int rollno)
+    {
+        student temp = null;
+        if(bottom != -1){
+            for (int i = 0 ; i <= bottom ; i++) {
+                if(sectionG[i].getRoll() == rollno){
+                    temp = sectionG[i];
+                    sectionG[i] = null;
+                    int j;
+                    for (j = i; j < sectionG.length-1 ; j++) {
+                        sectionG[j] = sectionG[j+1];
+                    }
+                    sectionG[j]=null;
+                    bottom--;
+                }
+            }
+        }
+        return temp;
+    }
+
     public static void main(String[] args) {
 
         arrays1 list = new arrays1(5);
@@ -67,8 +87,10 @@ public class arrays1 {
             stu1.setName("Mantri" + i);
             list.insert(stu1);
         }
-
         list.display();
+        System.out.println(list.remove(3)+" is removed");
+        list.display();
+
 
     }
 
