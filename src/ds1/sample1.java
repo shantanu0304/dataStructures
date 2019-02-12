@@ -29,12 +29,20 @@ public class sample1 {
         {
             System.out.println(i);
         }*/
-
+/*
         Date[] date = new Date[10];
 
-        for (Date date1 : date )
+        date[0] = new Date(2019-1900,2-1,13);
+        System.out.println(date[0]);
+
+        for (int i = 0; i <10 ; i++)
         {
-            System.out.println(date1);
-        }
+            date[i] = new Date(2019-1900 , 12-1, i+1 );
+            System.out.println(date[i]);
+        }*/
+
+
+
+
     }
 }
