@@ -12,8 +12,8 @@ public class LinkedList
             next=null;
         }
     }
-
-    public static void insert(int data){
+    //insert at the beginning
+    /*public static void insert(int data){
         Node new_node = new Node(data);
         if(start == null){
             start = new_node;
@@ -23,6 +23,54 @@ public class LinkedList
             new_node.next = start;
             start = new_node;
             head = new_node;
+        }
+    }*/
+
+
+    //insert at the end
+    /*public static void insert(int data){
+        Node new_node = new Node(data);
+        if(start == null ){
+            start = new_node;
+            head = new_node;
+        }
+        else{
+            while(head.next!=null){
+                head = head.next;
+            }
+            head.next = new_node;
+            head = start;
+        }
+    }*/
+
+    //insert at any position
+    public static void insert(int data,int pos){
+        Node new_node = new Node(data);
+        int c=0;
+        if(start == null ){
+            start = new_node;
+            head = new_node;
+        }
+        else{
+            while((head.next!=null) && (c<pos-2)){
+                head = head.next;
+                c++;
+            }
+            if((c==0) && (pos<=1)){
+                new_node.next=start;
+                start=new_node;
+                head=new_node;
+            }
+            else if(head.next==null){
+                head.next = new_node;
+                head=start;
+            }
+            else{
+                new_node.next = head.next;
+                head.next = new_node;
+                head = start;
+            }
+
         }
     }
 
@@ -34,10 +82,11 @@ public class LinkedList
     }
 
     public static void main(String[] args) {
-        insert(10);
-        insert(20);
-        insert(30);
-        insert(40);
+        insert(10,1);
+        insert(20,2);
+        insert(30,3);
+        insert(40,4);
+
         display();
     }
 
