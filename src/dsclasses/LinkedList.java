@@ -11,9 +11,17 @@ public class LinkedList
             data=d;
             next=null;
         }
+
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "data=" + data +
+                    ", next=" + next +
+                    '}';
+        }
     }
     //insert at the beginning
-    /*public static void insert(int data){
+    public static void insert(int data){
         Node new_node = new Node(data);
         if(start == null){
             start = new_node;
@@ -24,7 +32,7 @@ public class LinkedList
             start = new_node;
             head = new_node;
         }
-    }*/
+    }
 
 
     //insert at the end
@@ -44,7 +52,7 @@ public class LinkedList
     }*/
 
     //insert at any position
-    public static void insert(int data,int pos){
+    /*public static void insert(int data,int pos){
         Node new_node = new Node(data);
         int c=0;
         if(start == null ){
@@ -72,20 +80,23 @@ public class LinkedList
             }
 
         }
-    }
+    }*/
 
     public static void display(){
         while(head!=null){
             System.out.println(head.data);
             head = head.next;
         }
+
+        System.out.println(start);
+
     }
 
     public static void main(String[] args) {
-        insert(10,1);
-        insert(20,2);
-        insert(30,3);
-        insert(40,4);
+        insert(10);
+        insert(20);
+        insert(30);
+        insert(40);
 
         display();
     }
