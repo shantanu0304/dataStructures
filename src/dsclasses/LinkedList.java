@@ -102,7 +102,6 @@ public class LinkedList
             System.out.println(head.data);
             head = head.next;
         }
-
     }
 
     public static void main(String[] args) {
