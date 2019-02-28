@@ -41,24 +41,28 @@ public class LinkedList_rev {
     }
 
     public static void reverse(){
-        Node1 t = start;
-        Node1 start1 = t;
-        start = start.next;
-        t.next = null;
-        System.out.println(start);
-        while(start!=null){
-            Node1 t1;
-            t1 = start;
-            t1.next = t;
-            System.out.println(start.next);
-            t=t1;
-            start1 = t1;
-            start = start.next;
-            break;
+        Node1 t1;
+        Node1 t2;
+        Node1 t3=start;
+
+        t1 = start;
+        t1.next = null;
+        t3 = t3.next;
+        t2 = t3;
+        t2.next = t1;
+        t3 = t3.next;
+        t3 = start;
+        t3 = t3.next;
+        start.next = t2;
+        t1 = start;
+
+        while(t3!=null)
+        {
+
+
         }
-        System.out.println(start1);
-        start = start1;
-        head = start1;
+
+
     }
 
 

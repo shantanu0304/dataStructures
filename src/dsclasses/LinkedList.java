@@ -20,7 +20,7 @@ public class LinkedList
                     '}';
         }
     }
-    //insert at the beginning
+    /*//insert at the beginning
     public static void insert(int data){
         Node new_node = new Node(data);
         if(start == null){
@@ -32,11 +32,11 @@ public class LinkedList
             start = new_node;
             head = new_node;
         }
-    }
+    }*/
 
 
     //insert at the end
-    /*public static void insert(int data){
+    public static void insert(int data){
         Node new_node = new Node(data);
         if(start == null ){
             start = new_node;
@@ -49,7 +49,7 @@ public class LinkedList
             head.next = new_node;
             head = start;
         }
-    }*/
+    }
 
     //insert at any position
     /*public static void insert(int data,int pos){
@@ -82,13 +82,26 @@ public class LinkedList
         }
     }*/
 
+    public static void search(int data)
+    {
+        Node temp = start;
+        while(temp!=null){
+            if(temp.data == data){
+                System.out.println("Element found");
+                break;
+            }
+            temp = temp.next;
+        }
+        if(temp == null){
+            System.out.println("Element not found");
+        }
+    }
+
     public static void display(){
         while(head!=null){
             System.out.println(head.data);
             head = head.next;
         }
-
-        System.out.println(start);
 
     }
 
@@ -97,8 +110,8 @@ public class LinkedList
         insert(20);
         insert(30);
         insert(40);
-
         display();
+        search(40);
     }
 
 }
