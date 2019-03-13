@@ -62,6 +62,7 @@ public class LinkedListQueue
         if(this.front != null){
             response = this.front.getData();
             this.front=this.front.getNext();
+            this.size--;
         }
         return response;
     }
