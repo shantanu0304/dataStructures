@@ -67,6 +67,19 @@ public class LinkedListQueue
         return response;
     }
 
+    public boolean search (int data){
+        Node temp = front;
+        boolean response = false;
+        while(temp!=null){
+            if(temp.getData() == data) {
+                response = true;
+                return response;
+            }
+            temp = temp.getNext();
+        }
+        return response;
+    }
+
     public static void main(String[] args) {
         LinkedListQueue queue = new LinkedListQueue();
         System.out.println(queue);
@@ -77,5 +90,6 @@ public class LinkedListQueue
         System.out.println(queue);
         queue.dequeue();
         System.out.println(queue);
+        System.out.println(":"+queue.search(6));
     }
 }
