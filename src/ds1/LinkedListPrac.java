@@ -2,7 +2,7 @@ package ds1;
 
 public class LinkedListPrac {
     private static class node{
-        int data;
+        private int data;
         private node next;
 
         public int getData() {
@@ -28,17 +28,16 @@ public class LinkedListPrac {
     }
 
   void display(){
-      System.out.print("[ ");
       if(this.head == null){
-          System.out.println("null ]");
+          System.out.println();
       }
       else{
           node temp = this.head;
-          while(temp!=null){
+          while(temp.getNext()!=null){
               System.out.print(temp.data+" --> ");
               temp = temp.getNext();
           }
-          System.out.println("null ]");
+          System.out.println(temp.getData());
       }
   }
 
@@ -101,8 +100,6 @@ public class LinkedListPrac {
                     break;
                 }
                 temp = temp.getNext();
-
-
             }
             if(flag == 0){
                 System.out.println("Element not found");
@@ -110,9 +107,6 @@ public class LinkedListPrac {
             else{
                 System.out.println(data+" is removed");
             }
-
-
-
         }
     }
     public static void main(String[] args) {
