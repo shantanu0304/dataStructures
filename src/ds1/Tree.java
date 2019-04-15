@@ -5,6 +5,15 @@ class Node
     int data;
     Node left;
     Node right;
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "data=" + data +
+                ", left=" + left +
+                ", right=" + right +
+                '}';
+    }
 }
 
 
@@ -50,6 +59,8 @@ public class Tree
         root = t1.insert(root,10);
         root = t1.insert(root,14);
         root = t1.insert(root,13);
+
+        System.out.println(root);
     }
 
 }
