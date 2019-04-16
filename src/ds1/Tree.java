@@ -78,6 +78,29 @@ class bst{
 
         System.out.print(node.data+" ");
     }
+
+    public boolean search(Node node, int data){
+        boolean response = false;
+
+        Node temp = node;
+
+        while(temp!=null){
+            if(data == temp.data){
+                response = true;
+                break;
+            }
+            else if(data<temp.data)
+            {
+                temp = temp.left;
+            }
+            else{
+                temp = temp.right;
+            }
+        }
+
+        return response;
+
+    }
 }
 
 public class Tree
@@ -99,14 +122,16 @@ public class Tree
         System.out.println(root);
 
         t1.preorder(root);
-
         System.out.println();
 
         t1.inorder(root);
-
         System.out.println();
 
         t1.postorder(root);
+        System.out.println();
+
+        boolean ans = t1.search(root, 5);
+        System.out.println(ans);
     }
 
 }
