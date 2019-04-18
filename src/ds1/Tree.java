@@ -16,9 +16,7 @@ class Node
     }
 }
 
-
 class bst{
-
     public Node createNewNode(int data){
         Node newnode = new Node();
         newnode.data = data;
@@ -31,29 +29,25 @@ class bst{
         if(node == null){
             return createNewNode(data);
         }
-
-        if(data<node.data){
+        else if(node.data == data){
+            return node;
+        }
+        else if(data<node.data){
             node.left = insert(node.left,data);
         }
         else{
             node.right = insert(node.right,data);
         }
-
         return node;
-
     }
 
     public void preorder(Node node){
         if(node == null){
             return;
         }
-
         System.out.print(node.data+" ");
-
         preorder(node.left);
-
         preorder(node.right);
-
     }
 
     public void inorder(Node node){
@@ -61,11 +55,8 @@ class bst{
             return;
         }
         inorder(node.left);
-
         System.out.print(node.data+" ");
-
         inorder(node.right);
-
     }
 
     public void postorder(Node node){
@@ -73,17 +64,13 @@ class bst{
             return;
         }
         postorder(node.left);
-
         postorder(node.right);
-
         System.out.print(node.data+" ");
     }
 
     public boolean search(Node node, int data){
         boolean response = false;
-
         Node temp = node;
-
         while(temp!=null){
             if(data == temp.data){
                 response = true;
@@ -97,9 +84,24 @@ class bst{
                 temp = temp.right;
             }
         }
-
         return response;
+    }
 
+    int maxDepth(Node node){
+        if(node == null){
+            return 0;
+        }
+        else{
+
+            int ldepth = maxDepth(node.left);
+            int rdepth = maxDepth(node.right);
+            if(ldepth>rdepth){
+                return (ldepth+1);
+            }
+            else{
+                return (rdepth+1);
+            }
+        }
     }
 }
 
@@ -109,10 +111,9 @@ public class Tree
         bst t1 = new bst();
         Node root = null;
         //8,3,6,7,1,4,10,14,13
-
         root = t1.insert(root, 8);
         root = t1.insert(root,3);
-        root = t1.insert(root,6);
+        root = t1.insert(root,2);
         root = t1.insert(root,1);
         root = t1.insert(root,4);
         root = t1.insert(root,13);
@@ -120,7 +121,6 @@ public class Tree
         root = t1.insert(root,10);
 
         System.out.println(root);
-
         t1.preorder(root);
         System.out.println();
 
@@ -132,6 +132,8 @@ public class Tree
 
         boolean ans = t1.search(root, 5);
         System.out.println(ans);
-    }
 
+        int depth = t1.maxDepth(root);
+        System.out.println(depth);
+    }
 }
