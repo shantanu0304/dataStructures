@@ -31,8 +31,7 @@ class bst{
     }
 
     public Node createNewNode(int data){
-        Node newnode = new Node(data);
-        return newnode;
+        return new Node(data);
     }
 
     public void displayTree(){
@@ -90,7 +89,7 @@ class bst{
         postorder(root);
     }
 
-    public void postorder(Node node){
+    private void postorder(Node node){
         if(node == null){
             return;
         }
@@ -103,7 +102,7 @@ class bst{
         return search(root,data);
     }
 
-    public boolean search(Node node, int data){
+    private boolean search(Node node, int data){
         boolean response = false;
         Node temp = node;
         while(temp!=null){
@@ -126,7 +125,7 @@ class bst{
         return maxDepth(root);
     }
 
-    int maxDepth(Node node){
+    private int maxDepth(Node node){
         if(node == null){
             return 0;
         }
