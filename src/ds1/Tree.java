@@ -98,8 +98,8 @@ class bst{
         System.out.print(node.data+" ");
     }
 
-    public boolean search(int data){
-        return search(root,data);
+    public void search(int data){
+        System.out.println(search(root,data));
     }
 
     private boolean search(Node node, int data){
@@ -121,8 +121,8 @@ class bst{
         return response;
     }
 
-    int maxDepth(){
-        return maxDepth(root);
+    public void depth(){
+        System.out.println(maxDepth(root));
     }
 
     private int maxDepth(Node node){
@@ -142,11 +142,63 @@ class bst{
         }
     }
 
-    /*public void delete(Node node, int data)
+    public void delete(int data){
+        delete(root,data);
+    }
+
+    private Node delete(Node node, int data)
     {
+        if(node == null){
+            return null;
+        }
+
+        if(data<node.data){
+            node.left = delete(node.left,data);
+        }
+        else if(data>node.data){
+            node.right = delete(node.right,data);
+        }
+        else{
+
+            if(node.right == null){
+                return node.left;
+            }
+            else if(node.left == null){
+                return node.right;
+            }
+
+            node.data = minValue(node.right);
+            node.right = delete(root.right,node.data);
+
+        }
+        return node;
+    }
+
+    public void minimum(){
+        System.out.println(minValue(root));
+    }
+
+    private int minValue(Node node)
+    {
+        while(node.left != null){
+            node = node.left;
+        }
+        return node.data;
+
+    }
+
+    public void maximum(){
+        System.out.println(maxValue(root));
+    }
+
+    private int maxValue(Node node){
+        while(node.right != null){
+            node = node.right;
+        }
+        return node.data;
+    }
 
 
-    }*/
 }
 
 public class Tree
@@ -174,10 +226,16 @@ public class Tree
         t1.postorder();
         System.out.println();
 
-        boolean ans = t1.search(5);
-        System.out.println(ans);
+        t1.search(5);
 
-        int depth = t1.maxDepth();
-        System.out.println(depth);
+        t1.depth();
+
+        t1.search(10);
+        t1.delete(10);
+        t1.search(10);
+
+        t1.minimum();
+        t1.maximum();
+
     }
 }
