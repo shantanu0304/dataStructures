@@ -14,18 +14,36 @@ class Node
                 ", right=" + right +
                 '}';
     }
+
+    public Node(int data){
+        this.data = data;
+        left = right = null;
+    }
+
 }
 
 class bst{
+
+    Node root;
+
+    bst(){
+        root = null;
+    }
+
     public Node createNewNode(int data){
-        Node newnode = new Node();
-        newnode.data = data;
-        newnode.left = null;
-        newnode.right = null;
+        Node newnode = new Node(data);
         return newnode;
     }
 
-    public Node insert(Node node, int data){
+    public void displayTree(){
+        System.out.println(root);
+    }
+
+    public void insert(int data){
+        root = insertData(root,data);
+    }
+
+    public Node insertData(Node node, int data){
         if(node == null){
             return createNewNode(data);
         }
@@ -33,12 +51,17 @@ class bst{
             return node;
         }
         else if(data<node.data){
-            node.left = insert(node.left,data);
+            node.left = insertData(node.left,data);
         }
         else{
-            node.right = insert(node.right,data);
+            node.right = insertData(node.right,data);
         }
         return node;
+    }
+
+
+    public void preorder(){
+        preorder(root);
     }
 
     public void preorder(Node node){
@@ -50,6 +73,10 @@ class bst{
         preorder(node.right);
     }
 
+    public void inorder(){
+        inorder(root);
+    }
+
     public void inorder(Node node){
         if(node == null){
             return;
@@ -59,6 +86,10 @@ class bst{
         inorder(node.right);
     }
 
+    public void postorder(){
+        postorder(root);
+    }
+
     public void postorder(Node node){
         if(node == null){
             return;
@@ -66,6 +97,10 @@ class bst{
         postorder(node.left);
         postorder(node.right);
         System.out.print(node.data+" ");
+    }
+
+    public boolean search(int data){
+        return search(root,data);
     }
 
     public boolean search(Node node, int data){
@@ -87,6 +122,10 @@ class bst{
         return response;
     }
 
+    int maxDepth(){
+        return maxDepth(root);
+    }
+
     int maxDepth(Node node){
         if(node == null){
             return 0;
@@ -103,37 +142,43 @@ class bst{
             }
         }
     }
+
+    /*public void delete(Node node, int data)
+    {
+
+
+    }*/
 }
 
 public class Tree
 {
     public static void main(String[] args) {
         bst t1 = new bst();
-        Node root = null;
         //8,3,6,7,1,4,10,14,13
-        root = t1.insert(root, 8);
-        root = t1.insert(root,3);
-        root = t1.insert(root,2);
-        root = t1.insert(root,1);
-        root = t1.insert(root,4);
-        root = t1.insert(root,13);
-        root = t1.insert(root,14);
-        root = t1.insert(root,10);
+        t1.insert(8);
+        t1.insert(3);
+        t1.insert(2);
+        t1.insert(1);
+        t1.insert(4);
+        t1.insert(13);
+        t1.insert(14);
+        t1.insert(10);
 
-        System.out.println(root);
-        t1.preorder(root);
+        t1.displayTree();
+
+        t1.preorder();
         System.out.println();
 
-        t1.inorder(root);
+        t1.inorder();
         System.out.println();
 
-        t1.postorder(root);
+        t1.postorder();
         System.out.println();
 
-        boolean ans = t1.search(root, 5);
+        boolean ans = t1.search(5);
         System.out.println(ans);
 
-        int depth = t1.maxDepth(root);
+        int depth = t1.maxDepth();
         System.out.println(depth);
     }
 }
