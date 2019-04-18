@@ -15,23 +15,18 @@ class Node
                 '}';
     }
 
-    public Node(int data){
+    Node(int data){
         this.data = data;
         left = right = null;
     }
-
 }
 
 class bst{
 
-    Node root;
+    private Node root;
 
     bst(){
         root = null;
-    }
-
-    public Node createNewNode(int data){
-        return new Node(data);
     }
 
     public void displayTree(){
@@ -40,6 +35,10 @@ class bst{
 
     public void insert(int data){
         root = insertData(root,data);
+    }
+
+    private Node createNewNode(int data){
+        return new Node(data);
     }
 
     public Node insertData(Node node, int data){
@@ -99,12 +98,9 @@ class bst{
     }
 
     public void search(int data){
-        System.out.println(search(root,data));
-    }
-
-    private boolean search(Node node, int data){
         boolean response = false;
-        Node temp = node;
+        Node temp = root;
+
         while(temp!=null){
             if(data == temp.data){
                 response = true;
@@ -118,7 +114,7 @@ class bst{
                 temp = temp.right;
             }
         }
-        return response;
+        System.out.println(response);
     }
 
     public void depth(){
@@ -130,7 +126,6 @@ class bst{
             return 0;
         }
         else{
-
             int ldepth = maxDepth(node.left);
             int rdepth = maxDepth(node.right);
             if(ldepth>rdepth){
@@ -151,7 +146,6 @@ class bst{
         if(node == null){
             return null;
         }
-
         if(data<node.data){
             node.left = delete(node.left,data);
         }
@@ -159,14 +153,12 @@ class bst{
             node.right = delete(node.right,data);
         }
         else{
-
             if(node.right == null){
                 return node.left;
             }
             else if(node.left == null){
                 return node.right;
             }
-
             node.data = minValue(node.right);
             node.right = delete(root.right,node.data);
 
@@ -197,8 +189,6 @@ class bst{
         }
         return node.data;
     }
-
-
 }
 
 public class Tree
@@ -208,12 +198,13 @@ public class Tree
         //8,3,6,7,1,4,10,14,13
         t1.insert(8);
         t1.insert(3);
-        t1.insert(2);
+        t1.insert(6);
+        t1.insert(7);
         t1.insert(1);
         t1.insert(4);
-        t1.insert(13);
-        t1.insert(14);
         t1.insert(10);
+        t1.insert(14);
+        t1.insert(13);
 
         t1.displayTree();
 
@@ -236,6 +227,5 @@ public class Tree
 
         t1.minimum();
         t1.maximum();
-
     }
 }
