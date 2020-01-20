@@ -1,0 +1,74 @@
+import java.io.*;
+import java.util.*;
+public class Main
+{
+  public static void main (String[]args)
+  {
+    ArrayList < String > obj = new ArrayList < String > ();
+    ArrayList < String > obj1 = new ArrayList < String > ();
+    obj.add ("Red");
+    obj.add ("Green");
+    obj.add ("Blue");
+    obj.add ("Black");
+    //System.out.println(obj);
+    /*for (String a:obj)
+       {
+       System.out.println (a);
+
+       } */
+    obj.add (1, "White");
+    obj.add (5, "Pink");
+    for (String a:obj)
+    {
+        //System.out.println (a);
+    }
+    //System.out.println (obj.get (3) + "S");
+    obj.set (2, "Pink");
+    //System.out.println (obj);
+    obj.remove (2);
+    //System.out.println (obj);
+    if (obj.contains ("Red"))
+    {
+        //System.out.println ("Yes");
+    }
+    obj1.add("Hey");  
+    obj1.add("Hey");
+    obj1.add("Hey");
+    obj1.add("Hey");
+    obj1.add("Hey");
+    //Collections.sort (obj);
+    //System.out.println (obj);
+    Collections.copy(obj1,obj);
+    //System.out.println (obj1);
+    //Collections.shuffle(obj);
+    //System.out.println (obj);
+    Collections.reverse(obj);
+    //System.out.println (obj);
+    
+    // List<String> sub_list = obj.subList(0,3);
+    // System.out.println(sub_list);
+    
+    //List<String> list = new ArrayList<String>();
+    // for(String e : obj)
+    //     list.add(obj1.contains(e)?"Yes":"No");
+    // System.out.println(list);
+    
+    // List<String> list = new ArrayList<String>();
+    // list.addAll(obj);
+    // list.addAll(obj1);
+    // System.out.println(list);
+    //System.out.println(obj);
+    //ArrayList<String> list = (ArrayList<String>)obj.clone();
+    //System.out.println(list);
+    //System.out.println(obj1);
+    //obj1.removeAll();
+    //System.out.println(obj1.isEmpty());
+    //System.out.println(obj);
+    //obj.trimToSize();
+    //obj.ensureCapacity(6);
+    //obj.set(1,"hi");
+    //System.out.println(obj);
+    for(int i=0;i<obj.size();i++)
+        System.out.println(obj.get(i));
+  }
+}
