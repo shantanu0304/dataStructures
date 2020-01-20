@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+public class Main
+{
+  public static void main (String[]args)
+  {
+    LinkedList<String> l = new LinkedList<String>();
+    l.add("Red");
+    l.add("Yello");
+    l.add("Green");
+    l.add("Blue");
+    l.add("Grey");
+    // System.out.println(l);
+    // for(String e : l) System.out.println(e);
+    
+    // Iterator p = l.listIterator(1);
+    // while(p.hasNext()) System.out.println(p.next());
+    System.out.println(l);
+    
+    // Iterator p = l.descendingIterator();
+    // while(p.hasNext()) System.out.println(p.next());
+    
+    l.add(0,"Nope");
+    l.addFirst("Cyan");
+    l.addLast("Purple");
+    System.out.println(l);
+    System.out.println(l.getFirst());
+    System.out.println(l.getLast());
+  }
+}
