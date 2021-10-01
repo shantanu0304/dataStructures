@@ -1,2 +1,2 @@
 # dataStructures
-This repo consists implementation of various Data Structure algorithms using java
+This repository consists implementation of multiple Data Structure algorithms using java.
